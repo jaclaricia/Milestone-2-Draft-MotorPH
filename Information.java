@@ -1072,9 +1072,4 @@ public class Information {
 		separator_1.setBounds(278, 36, 187, 2);
 		panel_2.add(separator_1);
 	}
-
-	public void Date() {
-
-	}
-
 }
