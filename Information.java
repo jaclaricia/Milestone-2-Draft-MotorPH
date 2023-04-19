@@ -32,6 +32,8 @@ import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Information {
 
@@ -95,6 +97,17 @@ public class Information {
 
 		// Composition of frame (Label, Button, Text field, etc.)
 		frmMotorPhEmployee = new JFrame();
+		frmMotorPhEmployee.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				int option = JOptionPane.showConfirmDialog(frmMotorPhEmployee, "Proceed closing the window?",
+						"Close Window", JOptionPane.YES_NO_OPTION);
+				if (option == JOptionPane.YES_OPTION) {
+					frmMotorPhEmployee.dispose();
+				} else
+					frmMotorPhEmployee.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			}
+		});
 		frmMotorPhEmployee.setTitle("Motor PH: Employee App - Claricia, J. A.");
 		frmMotorPhEmployee.setBounds(100, 100, 514, 414);
 		frmMotorPhEmployee.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -730,7 +743,10 @@ public class Information {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (comboBox.getSelectedItem().equals("....")) {
+
+				if (cmbLeave.getSelectedItem().equals("....")) {
+					JOptionPane.showMessageDialog(null, "Please choose you leave type.");
+				} else if (comboBox.getSelectedItem().equals("....")) {
 					JOptionPane.showMessageDialog(null, "Invalid Employee Number.");
 
 					// Employee 1111 (Leave)
