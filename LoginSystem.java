@@ -14,6 +14,8 @@ import java.io.*;
 import javax.swing.JPasswordField;
 import javax.swing.JToggleButton;
 import javax.swing.JCheckBox;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class LoginSystem {
 
@@ -53,6 +55,19 @@ public class LoginSystem {
 		// Frame Compositions (Label, Button, Text Fields, etc.)
 
 		frmDfsf = new JFrame();
+		frmDfsf.addWindowListener(new WindowAdapter() {
+			@Override
+
+			public void windowClosing(WindowEvent e) {
+				int option = JOptionPane.showConfirmDialog(frmDfsf, "Proceed closing the window?", "Close Window",
+						JOptionPane.YES_NO_OPTION);
+				if (option == JOptionPane.YES_OPTION) {
+					frmDfsf.dispose();
+				} else
+					frmDfsf.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			}
+
+		});
 		frmDfsf.setTitle("Motor PH: Employee App - Claricia, J. A.");
 		frmDfsf.setBounds(200, 200, 500, 300);
 		frmDfsf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
