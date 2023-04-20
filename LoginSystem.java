@@ -57,13 +57,16 @@ public class LoginSystem {
 		frmDfsf = new JFrame();
 		frmDfsf.addWindowListener(new WindowAdapter() {
 			@Override
-
+			
+			//Clicking the "x" button of the window will prompt the user to proceed or not in closing the window.
 			public void windowClosing(WindowEvent e) {
 				int option = JOptionPane.showConfirmDialog(frmDfsf, "Proceed closing the window?", "Close Window",
 						JOptionPane.YES_NO_OPTION);
+				//Choosing "Yes" will close the window
 				if (option == JOptionPane.YES_OPTION) {
 					frmDfsf.dispose();
 				} else
+					//Choosing "No" will close the prompt and return to the main window.
 					frmDfsf.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			}
 
@@ -137,10 +140,10 @@ public class LoginSystem {
 
 		JButton btnNewButton_2 = new JButton("Register");
 
-		// Writes a text on a local directory to save login credentials
+		// Writes on textfile on a local directory to save login credentials
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
 				if (txtUsername.getText().equals("") || passwordField.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Invalid Username/Password.");
 				} else {
