@@ -16,6 +16,9 @@ import javax.swing.JToggleButton;
 import javax.swing.JCheckBox;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JPanel;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class LoginSystem {
 
@@ -55,18 +58,17 @@ public class LoginSystem {
 		// Frame Compositions (Label, Button, Text Fields, etc.)
 
 		frmDfsf = new JFrame();
+		frmDfsf.setBackground(new Color(255, 255, 255));
+		frmDfsf.getContentPane().setBackground(new Color(255, 165, 89));
 		frmDfsf.addWindowListener(new WindowAdapter() {
 			@Override
-			
-			//Clicking the "x" button of the window will prompt the user to proceed or not in closing the window.
+
 			public void windowClosing(WindowEvent e) {
 				int option = JOptionPane.showConfirmDialog(frmDfsf, "Proceed closing the window?", "Close Window",
 						JOptionPane.YES_NO_OPTION);
-				//Choosing "Yes" will close the window
 				if (option == JOptionPane.YES_OPTION) {
 					frmDfsf.dispose();
 				} else
-					//Choosing "No" will close the prompt and return to the main window.
 					frmDfsf.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			}
 
@@ -77,25 +79,23 @@ public class LoginSystem {
 		frmDfsf.setLocationRelativeTo(null);
 		frmDfsf.getContentPane().setLayout(null);
 
-		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setBounds(73, 98, 73, 14);
-		frmDfsf.getContentPane().add(lblUsername);
-
-		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(73, 129, 73, 14);
-		frmDfsf.getContentPane().add(lblPassword);
-
-		JLabel lblNewLabel_2 = new JLabel("Employee App");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_2.setBounds(157, 22, 178, 50);
+		JLabel lblNewLabel_2 = new JLabel("Login");
+		lblNewLabel_2.setBackground(new Color(255, 255, 255));
+		lblNewLabel_2.setForeground(new Color(255, 230, 199));
+		lblNewLabel_2.setFont(new Font("Leelawadee UI Semilight", Font.BOLD, 30));
+		lblNewLabel_2.setBounds(323, 18, 98, 50);
 		frmDfsf.getContentPane().add(lblNewLabel_2);
 
 		txtUsername = new JTextField();
-		txtUsername.setBounds(156, 95, 266, 20);
+		txtUsername.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 12));
+		txtUsername.setBounds(342, 84, 112, 20);
 		frmDfsf.getContentPane().add(txtUsername);
 		txtUsername.setColumns(10);
 
 		JButton btnNewButton = new JButton("Login");
+		btnNewButton.setBackground(new Color(255, 87, 51));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 
 		// Read file from text upon click
 		btnNewButton.addActionListener(new ActionListener() {
@@ -123,27 +123,18 @@ public class LoginSystem {
 			}
 		});
 
-		btnNewButton.setBounds(206, 183, 89, 38);
+		btnNewButton.setBounds(366, 185, 88, 27);
 		frmDfsf.getContentPane().add(btnNewButton);
 
-		// Resets the text fields
-		JButton btnNewButton_1 = new JButton("Reset");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				txtUsername.setText(null);
-				passwordField.setText(null);
-			}
-		});
-
-		btnNewButton_1.setBounds(334, 183, 89, 38);
-		frmDfsf.getContentPane().add(btnNewButton_1);
-
 		JButton btnNewButton_2 = new JButton("Register");
+		btnNewButton_2.setForeground(new Color(69, 69, 69));
+		btnNewButton_2.setBackground(new Color(255, 255, 255));
+		btnNewButton_2.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 
-		// Writes on textfile on a local directory to save login credentials
+		// Writes a text on a local directory to save login credentials
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if (txtUsername.getText().equals("") || passwordField.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Invalid Username/Password.");
 				} else {
@@ -161,15 +152,20 @@ public class LoginSystem {
 			}
 		});
 
-		btnNewButton_2.setBounds(73, 183, 89, 38);
+		btnNewButton_2.setBounds(277, 185, 87, 27);
 		frmDfsf.getContentPane().add(btnNewButton_2);
 
 		passwordField = new JPasswordField();
-		passwordField.setBounds(156, 126, 267, 20);
+		passwordField.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 12));
+		passwordField.setToolTipText("");
+		passwordField.setBounds(342, 115, 112, 20);
 		frmDfsf.getContentPane().add(passwordField);
 
 		// Hide and unhide password toggle w/ checkbox
 		JCheckBox showPass = new JCheckBox("Show");
+		showPass.setForeground(new Color(69, 69, 69));
+		showPass.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		showPass.setBackground(new Color(255, 165, 89));
 		showPass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (showPass.isSelected()) {
@@ -179,7 +175,30 @@ public class LoginSystem {
 				}
 			}
 		});
-		showPass.setBounds(372, 153, 73, 23);
+		showPass.setBounds(404, 135, 63, 23);
 		frmDfsf.getContentPane().add(showPass);
+
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 239, 261);
+		frmDfsf.getContentPane().add(panel);
+		panel.setLayout(null);
+
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBackground(new Color(255, 255, 255));
+		lblNewLabel.setIcon(new ImageIcon(LoginSystem.class.getResource("/Files/MotorPH (1) (1).png")));
+		lblNewLabel.setBounds(0, 0, 239, 261);
+		panel.add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel("Username");
+		lblNewLabel_1.setForeground(new Color(69, 69, 69));
+		lblNewLabel_1.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblNewLabel_1.setBounds(277, 88, 63, 14);
+		frmDfsf.getContentPane().add(lblNewLabel_1);
+
+		JLabel lblNewLabel_1_1 = new JLabel("Password");
+		lblNewLabel_1_1.setForeground(new Color(69, 69, 69));
+		lblNewLabel_1_1.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblNewLabel_1_1.setBounds(277, 118, 63, 14);
+		frmDfsf.getContentPane().add(lblNewLabel_1_1);
 	}
 }
