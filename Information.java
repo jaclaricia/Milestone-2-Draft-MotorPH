@@ -97,14 +97,18 @@ public class Information {
 
 		// Composition of frame (Label, Button, Text field, etc.)
 		frmMotorPhEmployee = new JFrame();
+		
+		//Prompts after clicking the "x" button to proceed or not on closing the window.
 		frmMotorPhEmployee.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				int option = JOptionPane.showConfirmDialog(frmMotorPhEmployee, "Proceed closing the window?",
 						"Close Window", JOptionPane.YES_NO_OPTION);
+				//Choosing Yes option will close the window
 				if (option == JOptionPane.YES_OPTION) {
 					frmMotorPhEmployee.dispose();
 				} else
+					//Choosing No option will close the prompt and return to the main window.
 					frmMotorPhEmployee.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			}
 		});
@@ -428,7 +432,8 @@ public class Information {
 
 		btnLogout.setBounds(376, 326, 109, 35);
 		frmMotorPhEmployee.getContentPane().add(btnLogout);
-
+		
+		//Combobox for choosing the employee and their information will fill the textfields by reading data from CSV Files
 		JComboBox<String> comboBox = new JComboBox();
 		comboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
@@ -479,15 +484,21 @@ public class Information {
 						txtGross.setText(dataPay[8]);
 
 						// Leaves
+						// Reads the CSV Files with the employee leave data
 						BufferedReader readerLeave = new BufferedReader(new FileReader(
 								"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Files\\leaves1111.csv"));
-
+						
+						// Reads the CSV file data separated by "," and display the data to their
+						// respective textfields
 						String lineLeave = readerLeave.readLine();
 						String[] dataLeave = lineLeave.split(",");
+						
+						// Display employee information from CSV file
 						txtSick.setText(dataLeave[0]);
 						txtVacation.setText(dataLeave[1]);
 						txtEmergency.setText(dataLeave[2]);
-
+						
+						// Setting the label icon as employee's photo
 						lblProfilePic.setIcon(new ImageIcon(
 								"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Icons\\male.png"));
 
@@ -542,14 +553,21 @@ public class Information {
 						txtGross.setText(dataPay[8]);
 
 						// Leaves
+						
 						BufferedReader readerLeave = new BufferedReader(new FileReader(
 								"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Files\\leaves2222.csv"));
+						
+						// Reads the CSV file data separated by "," and display the data to their
+						// respective textfields
 						String lineLeave = readerLeave.readLine();
 						String[] dataLeave = lineLeave.split(",");
+						
+						//// Display employee leave from CSV file
 						txtSick.setText(dataLeave[0]);
 						txtVacation.setText(dataLeave[1]);
 						txtEmergency.setText(dataLeave[2]);
-
+						
+						//Setting the label icon as employee's photo
 						lblProfilePic.setIcon(new ImageIcon(
 								"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Icons\\female.png"));
 
@@ -558,7 +576,9 @@ public class Information {
 					}
 
 				} else if (comboBox.getSelectedItem().equals("....")) {
+					
 					// Sets the textfields to empty
+					// Employee Information
 					txtName.setText("....");
 					txtDepartment.setText("....");
 					txtEmail.setText("....");
@@ -569,7 +589,8 @@ public class Information {
 					txtPhilhealth.setText(".....");
 					txtTIN.setText(".....");
 					txtPagibig.setText(".....");
-
+					
+					// Payroll Information
 					txtBasicSalary.setText(".....");
 					txtClothing.setText(".....");
 					txtPhone.setText(".....");
@@ -579,11 +600,13 @@ public class Information {
 					txtTax.setText(".....");
 					txtNet.setText(".....");
 					txtGross.setText(".....");
-
+					
+					// Leaves Information
 					txtSick.setText("....");
 					txtVacation.setText("....");
 					txtEmergency.setText("....");
-
+					
+					// Set the image icon to "blank user"
 					lblProfilePic.setIcon(
 							new ImageIcon("C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Icons\\blank.png"));
 				}
@@ -601,7 +624,8 @@ public class Information {
 		JButton btnPrint = new JButton("Print");
 		btnPrint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
+				//If combobox selected item is not "...." the method will proceed
 				if (!comboBox.getSelectedItem().equals("....")) {
 					try {
 						BufferedWriter writer = new BufferedWriter(new FileWriter(
@@ -627,6 +651,8 @@ public class Information {
 						e1.printStackTrace();
 					}
 				} else
+					// If combobox selected item is "...." it will prompt the user
+					// that is has invalid employee number
 					JOptionPane.showMessageDialog(null, "Invalid Employee Number.");
 			}
 		});
@@ -644,7 +670,9 @@ public class Information {
 				String emailUp = txtEmailUp.getText();
 				String addressUp = txtAddressUp.getText();
 				String contactUp = txtContactUp.getText();
-
+				
+				// If combobox selected item is "...." it will prompt the user
+				// that is has invalid employee number
 				if (comboBox.getSelectedItem().equals("....")) {
 					JOptionPane.showMessageDialog(null, "Invalid Employee Number.");
 
@@ -743,7 +771,8 @@ public class Information {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
+				// If leave combobox selected item is "...." it will prompt the user
 				if (cmbLeave.getSelectedItem().equals("....")) {
 					JOptionPane.showMessageDialog(null, "Please choose you leave type.");
 				} else if (comboBox.getSelectedItem().equals("....")) {
@@ -753,22 +782,38 @@ public class Information {
 				} else if (comboBox.getSelectedItem().equals("1111")) {
 					if (cmbLeave.getSelectedItem().equals("Sick Leave")) {
 						try {
+							// Reads leaves csv file
 							BufferedReader reader = new BufferedReader(new FileReader(
 									"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Files\\leaves1111.csv"));
 							String line = reader.readLine();
+							
+							// This is use to build/concatinate values into one string
 							StringBuilder leaveUpdate = new StringBuilder();
 
 							while (line != null) {
+								
+								// Splits the string that are separated by comma ","
 								String[] data = line.split(",");
+								
+								// Converts the value from the csv file to integer for computation purposes
 								int leaveCount = Integer.parseInt(data[0]);
+								
+								// Method will run until the leaveCount is not zero
 								if (leaveCount > 0) {
 									leaveCount = leaveCount - 1;
+									
+									// Converts the leaveCount back string to input it on csv file
 									data[0] = Integer.toString(leaveCount);
-
+									
+									// "Date" is a method integrated in java to deal with "Calendar"
 									Date selectedDate = calendar.getDate();
+									
+									// Formats the calendar date
 									SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+									
 									String formattedDate = dateFormat.format(selectedDate);
 									try {
+										// Writes the data to csv file with employee no., date, and type of leave
 										BufferedWriter writer = new BufferedWriter(new FileWriter(
 												"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Files\\leaveApplication.csv",
 												true));
@@ -785,7 +830,11 @@ public class Information {
 								} else {
 									JOptionPane.showMessageDialog(null, "Not enough sick leave.");
 								}
+								
+								// This joins the element of data array to and separates it with comma ","
 								leaveUpdate.append(String.join(",", data)).append("\n");
+								
+								// Reads the next line
 								line = reader.readLine();
 							}
 
