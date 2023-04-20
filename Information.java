@@ -34,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.SystemColor;
 
 public class Information {
 
@@ -97,18 +98,16 @@ public class Information {
 
 		// Composition of frame (Label, Button, Text field, etc.)
 		frmMotorPhEmployee = new JFrame();
-		
-		//Prompts after clicking the "x" button to proceed or not on closing the window.
+		frmMotorPhEmployee.setBackground(SystemColor.desktop);
+		frmMotorPhEmployee.getContentPane().setBackground(new Color(69, 69, 69));
 		frmMotorPhEmployee.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				int option = JOptionPane.showConfirmDialog(frmMotorPhEmployee, "Proceed closing the window?",
 						"Close Window", JOptionPane.YES_NO_OPTION);
-				//Choosing Yes option will close the window
 				if (option == JOptionPane.YES_OPTION) {
 					frmMotorPhEmployee.dispose();
 				} else
-					//Choosing No option will close the prompt and return to the main window.
 					frmMotorPhEmployee.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			}
 		});
@@ -119,141 +118,228 @@ public class Information {
 		frmMotorPhEmployee.getContentPane().setLayout(null);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 59, 475, 256);
+		tabbedPane.setBorder(null);
+		tabbedPane.setBackground(new Color(255, 165, 89));
+		tabbedPane.setBounds(10, 59, 478, 256);
 		frmMotorPhEmployee.getContentPane().add(tabbedPane);
+		tabbedPane.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		tabbedPane.setForeground(new Color(69, 69, 69));
 
 		JPanel panel = new JPanel();
+		panel.setBorder(null);
+		panel.setBackground(new Color(220, 220, 220));
 		tabbedPane.addTab("Information", null, panel, null);
+
 		panel.setLayout(null);
 
 		JLabel lblName = new JLabel("Name");
+		lblName.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblName.setForeground(new Color(69, 69, 69));
 		lblName.setBounds(10, 11, 63, 14);
 		panel.add(lblName);
 
 		JLabel lblDepartment = new JLabel("Department");
+		lblDepartment.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblDepartment.setForeground(new Color(69, 69, 69));
 		lblDepartment.setBounds(10, 36, 81, 14);
 		panel.add(lblDepartment);
 
 		JLabel lblAddress = new JLabel("Address");
+		lblAddress.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblAddress.setForeground(new Color(69, 69, 69));
 		lblAddress.setBounds(10, 86, 81, 14);
 		panel.add(lblAddress);
 
 		lblProfilePic = new JLabel("Picture");
+		lblProfilePic.setForeground(new Color(255, 255, 255));
 		lblProfilePic.setBounds(315, 11, 150, 150);
 		panel.add(lblProfilePic);
 
 		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblEmail.setForeground(new Color(69, 69, 69));
 		lblEmail.setBounds(10, 61, 46, 14);
 		panel.add(lblEmail);
 
 		JLabel lblContact = new JLabel("Contact");
+		lblContact.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblContact.setForeground(new Color(69, 69, 69));
 		lblContact.setBounds(10, 111, 63, 14);
 		panel.add(lblContact);
 
 		JLabel lblBirthday = new JLabel("Birthday");
+		lblBirthday.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblBirthday.setForeground(new Color(69, 69, 69));
 		lblBirthday.setBounds(10, 136, 63, 14);
 		panel.add(lblBirthday);
 
 		txtName = new JTextField();
-		txtName.setBounds(83, 8, 222, 20);
+		txtName.setForeground(new Color(69, 69, 69));
+		txtName.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtName.setEditable(false);
+		txtName.setBackground(new Color(255, 230, 199));
+		txtName.setBounds(93, 9, 212, 20);
 		panel.add(txtName);
 		txtName.setColumns(10);
 
 		txtDepartment = new JTextField();
+		txtDepartment.setForeground(new Color(69, 69, 69));
+		txtDepartment.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtDepartment.setEditable(false);
+		txtDepartment.setBackground(new Color(255, 230, 199));
 		txtDepartment.setColumns(10);
-		txtDepartment.setBounds(83, 33, 222, 20);
+		txtDepartment.setBounds(93, 33, 212, 20);
 		panel.add(txtDepartment);
 
 		txtEmail = new JTextField();
+		txtEmail.setForeground(new Color(69, 69, 69));
+		txtEmail.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtEmail.setEditable(false);
+		txtEmail.setBackground(new Color(255, 230, 199));
 		txtEmail.setColumns(10);
-		txtEmail.setBounds(83, 58, 222, 20);
+		txtEmail.setBounds(93, 58, 212, 20);
 		panel.add(txtEmail);
 
 		txtAddress = new JTextField();
+		txtAddress.setForeground(new Color(69, 69, 69));
+		txtAddress.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtAddress.setEditable(false);
+		txtAddress.setBackground(new Color(255, 230, 199));
 		txtAddress.setColumns(10);
-		txtAddress.setBounds(83, 83, 222, 20);
+		txtAddress.setBounds(93, 83, 212, 20);
 		panel.add(txtAddress);
 
 		txtContact = new JTextField();
+		txtContact.setForeground(new Color(69, 69, 69));
+		txtContact.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtContact.setEditable(false);
+		txtContact.setBackground(new Color(255, 230, 199));
 		txtContact.setColumns(10);
-		txtContact.setBounds(83, 108, 222, 20);
+		txtContact.setBounds(93, 108, 212, 20);
 		panel.add(txtContact);
 
 		txtBirthday = new JTextField();
+		txtBirthday.setForeground(new Color(69, 69, 69));
+		txtBirthday.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtBirthday.setEditable(false);
+		txtBirthday.setBackground(new Color(255, 230, 199));
 		txtBirthday.setColumns(10);
-		txtBirthday.setBounds(83, 133, 222, 20);
+		txtBirthday.setBounds(93, 133, 212, 20);
 		panel.add(txtBirthday);
 
 		JLabel lblSSS = new JLabel("SSS No.");
-		lblSSS.setBounds(10, 178, 63, 14);
+		lblSSS.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblSSS.setForeground(new Color(69, 69, 69));
+		lblSSS.setBounds(10, 175, 63, 14);
 		panel.add(lblSSS);
 
 		txtSSS = new JTextField();
+		txtSSS.setForeground(new Color(69, 69, 69));
+		txtSSS.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtSSS.setEditable(false);
+		txtSSS.setBackground(new Color(255, 230, 199));
 		txtSSS.setColumns(10);
-		txtSSS.setBounds(83, 175, 150, 20);
+		txtSSS.setBounds(94, 172, 139, 20);
 		panel.add(txtSSS);
 
 		JLabel lblPhilhealth = new JLabel("Philhealth");
-		lblPhilhealth.setBounds(10, 203, 81, 14);
+		lblPhilhealth.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblPhilhealth.setForeground(new Color(69, 69, 69));
+		lblPhilhealth.setBounds(10, 200, 81, 14);
 		panel.add(lblPhilhealth);
 
 		txtPhilhealth = new JTextField();
+		txtPhilhealth.setForeground(new Color(69, 69, 69));
+		txtPhilhealth.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtPhilhealth.setEditable(false);
+		txtPhilhealth.setBackground(new Color(255, 230, 199));
 		txtPhilhealth.setColumns(10);
-		txtPhilhealth.setBounds(83, 200, 150, 20);
+		txtPhilhealth.setBounds(94, 197, 139, 20);
 		panel.add(txtPhilhealth);
 
 		JLabel lblPagibig = new JLabel("Pagibig No.");
-		lblPagibig.setBounds(242, 203, 63, 14);
+		lblPagibig.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblPagibig.setForeground(new Color(69, 69, 69));
+		lblPagibig.setBounds(242, 200, 74, 17);
 		panel.add(lblPagibig);
 
 		txtPagibig = new JTextField();
+		txtPagibig.setForeground(new Color(69, 69, 69));
+		txtPagibig.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtPagibig.setEditable(false);
+		txtPagibig.setBackground(new Color(255, 230, 199));
 		txtPagibig.setColumns(10);
-		txtPagibig.setBounds(315, 200, 150, 20);
+		txtPagibig.setBounds(326, 197, 139, 20);
 		panel.add(txtPagibig);
 
 		JLabel lblTIN = new JLabel("TIN No.");
-		lblTIN.setBounds(243, 178, 63, 14);
+		lblTIN.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblTIN.setForeground(new Color(69, 69, 69));
+		lblTIN.setBounds(243, 175, 63, 14);
 		panel.add(lblTIN);
 
 		txtTIN = new JTextField();
+		txtTIN.setForeground(new Color(69, 69, 69));
+		txtTIN.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtTIN.setEditable(false);
+		txtTIN.setBackground(new Color(255, 230, 199));
 		txtTIN.setColumns(10);
-		txtTIN.setBounds(315, 175, 150, 20);
+		txtTIN.setBounds(326, 173, 139, 20);
 		panel.add(txtTIN);
 
 		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(null);
+		panel_1.setForeground(new Color(0, 0, 0));
+		panel_1.setBackground(new Color(220, 220, 220));
 		tabbedPane.addTab("Payroll", null, panel_1, null);
 		panel_1.setLayout(null);
 
 		JLabel lblBasic = new JLabel("Basic Salary");
-		lblBasic.setBounds(10, 11, 91, 14);
+		lblBasic.setForeground(new Color(69, 69, 69));
+		lblBasic.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblBasic.setBounds(10, 22, 91, 14);
 		panel_1.add(lblBasic);
 
 		JLabel lblAllowance = new JLabel("Allowances");
-		lblAllowance.setBounds(10, 36, 72, 14);
+		lblAllowance.setForeground(new Color(69, 69, 69));
+		lblAllowance.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblAllowance.setBounds(10, 47, 72, 14);
 		panel_1.add(lblAllowance);
 
 		JLabel lblClothing = new JLabel("Clothing");
-		lblClothing.setBounds(20, 61, 62, 14);
+		lblClothing.setForeground(new Color(69, 69, 69));
+		lblClothing.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblClothing.setBounds(20, 72, 62, 14);
 		panel_1.add(lblClothing);
 
 		JLabel lblPhone = new JLabel("Phone");
-		lblPhone.setBounds(20, 86, 46, 14);
+		lblPhone.setForeground(new Color(69, 69, 69));
+		lblPhone.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblPhone.setBounds(20, 97, 46, 14);
 		panel_1.add(lblPhone);
 
 		JLabel lblRice = new JLabel("Rice Subsidy");
-		lblRice.setBounds(20, 111, 77, 14);
+		lblRice.setForeground(new Color(69, 69, 69));
+		lblRice.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblRice.setBounds(20, 122, 77, 14);
 		panel_1.add(lblRice);
 
 		JLabel lblBonus = new JLabel("Bonus");
-		lblBonus.setBounds(10, 136, 72, 14);
+		lblBonus.setForeground(new Color(69, 69, 69));
+		lblBonus.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblBonus.setBounds(10, 147, 72, 14);
 		panel_1.add(lblBonus);
 
 		JLabel lblDeduction = new JLabel("Deductions");
-		lblDeduction.setBounds(249, 11, 72, 14);
+		lblDeduction.setForeground(new Color(69, 69, 69));
+		lblDeduction.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblDeduction.setBounds(249, 22, 72, 14);
 		panel_1.add(lblDeduction);
 
 		JLabel lblInsurance = new JLabel("Insurance");
-		lblInsurance.setBounds(259, 36, 62, 14);
+		lblInsurance.setForeground(new Color(69, 69, 69));
+		lblInsurance.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblInsurance.setBounds(259, 47, 62, 14);
 		panel_1.add(lblInsurance);
 
 		JLabel lblNewLabel_8 = new JLabel("New label");
@@ -261,60 +347,93 @@ public class Information {
 		panel_1.add(lblNewLabel_8);
 
 		JLabel lblTax = new JLabel("Tax");
-		lblTax.setBounds(259, 61, 46, 14);
+		lblTax.setForeground(new Color(69, 69, 69));
+		lblTax.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblTax.setBounds(259, 72, 46, 14);
 		panel_1.add(lblTax);
 
 		JLabel lblNet = new JLabel("Salary (Net)");
-		lblNet.setBounds(249, 86, 72, 14);
+		lblNet.setForeground(new Color(69, 69, 69));
+		lblNet.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblNet.setBounds(249, 97, 72, 14);
 		panel_1.add(lblNet);
 
 		JLabel lblGross = new JLabel("Salary (Gross)");
-		lblGross.setBounds(246, 111, 91, 14);
+		lblGross.setForeground(new Color(69, 69, 69));
+		lblGross.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblGross.setBounds(246, 122, 91, 14);
 		panel_1.add(lblGross);
 
 		txtBasicSalary = new JTextField();
-		txtBasicSalary.setBounds(111, 8, 118, 20);
+		txtBasicSalary.setEditable(false);
+		txtBasicSalary.setBackground(new Color(255, 230, 199));
+		txtBasicSalary.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtBasicSalary.setBounds(111, 19, 118, 20);
 		panel_1.add(txtBasicSalary);
 		txtBasicSalary.setColumns(10);
 
 		txtPhone = new JTextField();
-		txtPhone.setBounds(111, 83, 118, 20);
+		txtPhone.setBackground(new Color(255, 230, 199));
+		txtPhone.setEditable(false);
+		txtPhone.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtPhone.setBounds(111, 94, 118, 20);
 		panel_1.add(txtPhone);
 		txtPhone.setColumns(10);
 
 		txtClothing = new JTextField();
-		txtClothing.setBounds(111, 58, 118, 20);
+		txtClothing.setBackground(new Color(255, 230, 199));
+		txtClothing.setEditable(false);
+		txtClothing.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtClothing.setBounds(111, 69, 118, 20);
 		panel_1.add(txtClothing);
 		txtClothing.setColumns(10);
 
 		txtRice = new JTextField();
-		txtRice.setBounds(111, 108, 118, 20);
+		txtRice.setBackground(new Color(255, 230, 199));
+		txtRice.setEditable(false);
+		txtRice.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtRice.setBounds(111, 119, 118, 20);
 		panel_1.add(txtRice);
 		txtRice.setColumns(10);
 
 		txtBonus = new JTextField();
-		txtBonus.setBounds(111, 133, 118, 20);
+		txtBonus.setBackground(new Color(255, 230, 199));
+		txtBonus.setEditable(false);
+		txtBonus.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtBonus.setBounds(111, 144, 118, 20);
 		panel_1.add(txtBonus);
 		txtBonus.setColumns(10);
 
 		txtInsurance = new JTextField();
-		txtInsurance.setBounds(347, 33, 118, 20);
+		txtInsurance.setBackground(new Color(255, 230, 199));
+		txtInsurance.setEditable(false);
+		txtInsurance.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtInsurance.setBounds(347, 44, 118, 20);
 		panel_1.add(txtInsurance);
 		txtInsurance.setColumns(10);
 
 		txtTax = new JTextField();
+		txtTax.setBackground(new Color(255, 230, 199));
+		txtTax.setEditable(false);
+		txtTax.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 		txtTax.setColumns(10);
-		txtTax.setBounds(347, 58, 118, 20);
+		txtTax.setBounds(347, 69, 118, 20);
 		panel_1.add(txtTax);
 
 		txtNet = new JTextField();
+		txtNet.setBackground(new Color(255, 230, 199));
+		txtNet.setEditable(false);
+		txtNet.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 		txtNet.setColumns(10);
-		txtNet.setBounds(347, 83, 118, 20);
+		txtNet.setBounds(347, 94, 118, 20);
 		panel_1.add(txtNet);
 
 		txtGross = new JTextField();
+		txtGross.setBackground(new Color(255, 230, 199));
+		txtGross.setEditable(false);
+		txtGross.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 		txtGross.setColumns(10);
-		txtGross.setBounds(347, 108, 118, 20);
+		txtGross.setBounds(347, 119, 118, 20);
 		panel_1.add(txtGross);
 
 		JPanel panel_3 = new JPanel();
@@ -322,106 +441,155 @@ public class Information {
 		panel_3.setLayout(null);
 
 		JPanel panel_4 = new JPanel();
+		panel_4.setBorder(null);
+		panel_4.setBackground(new Color(220, 220, 220));
 		panel_4.setLayout(null);
 		panel_4.setBounds(0, 0, 475, 234);
 		panel_3.add(panel_4);
 
 		JLabel lblName_1 = new JLabel("Name");
-		lblName_1.setBounds(132, 40, 63, 14);
+		lblName_1.setForeground(new Color(69, 69, 69));
+		lblName_1.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblName_1.setBounds(132, 37, 63, 14);
 		panel_4.add(lblName_1);
 
 		JLabel lblDepartment_1 = new JLabel("Department");
-		lblDepartment_1.setBounds(132, 65, 81, 14);
+		lblDepartment_1.setForeground(new Color(69, 69, 69));
+		lblDepartment_1.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblDepartment_1.setBounds(132, 62, 81, 14);
 		panel_4.add(lblDepartment_1);
 
 		JLabel lblAddress_1 = new JLabel("Address");
-		lblAddress_1.setBounds(132, 115, 81, 14);
+		lblAddress_1.setForeground(new Color(69, 69, 69));
+		lblAddress_1.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblAddress_1.setBounds(132, 112, 81, 14);
 		panel_4.add(lblAddress_1);
 
 		JLabel lblEmail_1 = new JLabel("Email");
-		lblEmail_1.setBounds(132, 90, 46, 14);
+		lblEmail_1.setForeground(new Color(69, 69, 69));
+		lblEmail_1.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblEmail_1.setBounds(132, 87, 46, 14);
 		panel_4.add(lblEmail_1);
 
 		JLabel lblContact_1 = new JLabel("Contact");
-		lblContact_1.setBounds(132, 141, 63, 14);
+		lblContact_1.setForeground(new Color(69, 69, 69));
+		lblContact_1.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblContact_1.setBounds(132, 138, 63, 14);
 		panel_4.add(lblContact_1);
 
 		txtNameUp = new JTextField();
+		txtNameUp.setBackground(new Color(255, 230, 199));
+		txtNameUp.setFont(new Font("Liberation Sans", Font.PLAIN, 12));
 		txtNameUp.setColumns(10);
-		txtNameUp.setBounds(208, 37, 150, 20);
+		txtNameUp.setBounds(208, 34, 150, 20);
 		panel_4.add(txtNameUp);
 
 		txtDepartmentUp = new JTextField();
+		txtDepartmentUp.setBackground(new Color(255, 230, 199));
+		txtDepartmentUp.setFont(new Font("Liberation Sans", Font.PLAIN, 12));
 		txtDepartmentUp.setColumns(10);
-		txtDepartmentUp.setBounds(208, 62, 150, 20);
+		txtDepartmentUp.setBounds(208, 59, 150, 20);
 		panel_4.add(txtDepartmentUp);
 
 		txtEmailUp = new JTextField();
+		txtEmailUp.setBackground(new Color(255, 230, 199));
+		txtEmailUp.setFont(new Font("Liberation Sans", Font.PLAIN, 12));
 		txtEmailUp.setColumns(10);
-		txtEmailUp.setBounds(208, 87, 150, 20);
+		txtEmailUp.setBounds(208, 84, 150, 20);
 		panel_4.add(txtEmailUp);
 
 		txtAddressUp = new JTextField();
+		txtAddressUp.setBackground(new Color(255, 230, 199));
+		txtAddressUp.setFont(new Font("Liberation Sans", Font.PLAIN, 12));
 		txtAddressUp.setColumns(10);
-		txtAddressUp.setBounds(208, 112, 150, 20);
+		txtAddressUp.setBounds(208, 109, 150, 20);
 		panel_4.add(txtAddressUp);
 
 		txtContactUp = new JTextField();
+		txtContactUp.setBackground(new Color(255, 230, 199));
+		txtContactUp.setFont(new Font("Liberation Sans", Font.PLAIN, 12));
 		txtContactUp.setColumns(10);
-		txtContactUp.setBounds(208, 138, 150, 20);
+		txtContactUp.setBounds(208, 135, 150, 20);
 		panel_4.add(txtContactUp);
 
 		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(null);
+		panel_2.setForeground(new Color(0, 0, 0));
+		panel_2.setBackground(new Color(255, 230, 199));
 		tabbedPane.addTab("Request Leave", null, panel_2, null);
 		panel_2.setLayout(null);
 
 		JCalendar calendar = new JCalendar();
-		calendar.setBounds(10, 11, 258, 212);
+		calendar.getDayChooser().setBackground(new Color(255, 165, 89));
+		calendar.getMonthChooser().getSpinner().setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		calendar.getDayChooser().getDayPanel().setForeground(new Color(255, 165, 89));
+		calendar.getDayChooser().setSundayForeground(new Color(255, 165, 89));
+		calendar.getDayChooser().setWeekdayForeground(new Color(255, 255, 255));
+		calendar.getDayChooser().setForeground(new Color(69, 69, 69));
+		calendar.getDayChooser().setDecorationBackgroundColor(new Color(255, 165, 89));
+		calendar.getDayChooser().getDayPanel().setBackground(new Color(255, 230, 199));
+		calendar.getYearChooser().getSpinner().setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		calendar.getMonthChooser().getComboBox().setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		calendar.setBounds(0, 0, 247, 228);
 		panel_2.add(calendar);
 
 		JComboBox cmbLeave = new JComboBox();
+		cmbLeave.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 		cmbLeave.addItem("....");
 		cmbLeave.addItem("Sick Leave");
 		cmbLeave.addItem("Vacation Leave");
 		cmbLeave.addItem("Emergency Leave");
-		cmbLeave.setBounds(278, 158, 187, 22);
+		cmbLeave.setBounds(267, 152, 187, 22);
 		panel_2.add(cmbLeave);
 
 		JLabel lblSick = new JLabel("Sick");
-		lblSick.setBounds(293, 55, 34, 14);
+		lblSick.setFont(new Font("Liberation Sans", Font.PLAIN, 12));
+		lblSick.setForeground(new Color(0, 0, 0));
+		lblSick.setBounds(282, 55, 34, 14);
 		panel_2.add(lblSick);
 
 		txtSick = new JTextField();
-		txtSick.setBounds(368, 52, 86, 20);
+		txtSick.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		txtSick.setBounds(357, 52, 86, 20);
 		panel_2.add(txtSick);
 		txtSick.setColumns(10);
 
 		JLabel lblVacation = new JLabel("Vacation");
-		lblVacation.setBounds(293, 80, 65, 14);
+		lblVacation.setFont(new Font("Liberation Sans", Font.PLAIN, 12));
+		lblVacation.setBounds(282, 80, 65, 14);
 		panel_2.add(lblVacation);
 
 		txtEmergency = new JTextField();
+		txtEmergency.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 		txtEmergency.setColumns(10);
-		txtEmergency.setBounds(368, 102, 86, 20);
+		txtEmergency.setBounds(357, 102, 86, 20);
 		panel_2.add(txtEmergency);
 
 		JLabel lblEmergency = new JLabel("Emergency");
-		lblEmergency.setBounds(293, 105, 93, 14);
+		lblEmergency.setFont(new Font("Liberation Sans", Font.PLAIN, 12));
+		lblEmergency.setForeground(new Color(0, 0, 0));
+		lblEmergency.setBounds(282, 105, 93, 14);
 		panel_2.add(lblEmergency);
 
 		txtVacation = new JTextField();
+		txtVacation.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 		txtVacation.setColumns(10);
-		txtVacation.setBounds(368, 77, 86, 20);
+		txtVacation.setBounds(357, 77, 86, 20);
 		panel_2.add(txtVacation);
 
 		JLabel lblEmployeeName = new JLabel("Employee No.");
-		lblEmployeeName.setBounds(10, 26, 101, 14);
+		lblEmployeeName.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		lblEmployeeName.setForeground(new Color(255, 230, 199));
+		lblEmployeeName.setBounds(10, 30, 101, 14);
 		frmMotorPhEmployee.getContentPane().add(lblEmployeeName);
 
 		// Methods & Event Handlers
 
 		// Logout the Employee Window and brings back the Login Window
 		JButton btnLogout = new JButton("Logout");
+		btnLogout.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		btnLogout.setForeground(new Color(255, 255, 255));
+		btnLogout.setBackground(new Color(255, 96, 0));
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LoginSystem login = new LoginSystem();
@@ -430,11 +598,13 @@ public class Information {
 			}
 		});
 
-		btnLogout.setBounds(376, 326, 109, 35);
+		btnLogout.setBounds(406, 326, 79, 35);
 		frmMotorPhEmployee.getContentPane().add(btnLogout);
-		
-		//Combobox for choosing the employee and their information will fill the textfields by reading data from CSV Files
+
 		JComboBox<String> comboBox = new JComboBox();
+		comboBox.setForeground(new Color(255, 255, 255));
+		comboBox.setBackground(new Color(255, 165, 89));
+		comboBox.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 		comboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (comboBox.getSelectedItem().equals("1111")) {
@@ -484,21 +654,15 @@ public class Information {
 						txtGross.setText(dataPay[8]);
 
 						// Leaves
-						// Reads the CSV Files with the employee leave data
 						BufferedReader readerLeave = new BufferedReader(new FileReader(
 								"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Files\\leaves1111.csv"));
-						
-						// Reads the CSV file data separated by "," and display the data to their
-						// respective textfields
+
 						String lineLeave = readerLeave.readLine();
 						String[] dataLeave = lineLeave.split(",");
-						
-						// Display employee information from CSV file
 						txtSick.setText(dataLeave[0]);
 						txtVacation.setText(dataLeave[1]);
 						txtEmergency.setText(dataLeave[2]);
-						
-						// Setting the label icon as employee's photo
+
 						lblProfilePic.setIcon(new ImageIcon(
 								"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Icons\\male.png"));
 
@@ -553,21 +717,14 @@ public class Information {
 						txtGross.setText(dataPay[8]);
 
 						// Leaves
-						
 						BufferedReader readerLeave = new BufferedReader(new FileReader(
 								"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Files\\leaves2222.csv"));
-						
-						// Reads the CSV file data separated by "," and display the data to their
-						// respective textfields
 						String lineLeave = readerLeave.readLine();
 						String[] dataLeave = lineLeave.split(",");
-						
-						//// Display employee leave from CSV file
 						txtSick.setText(dataLeave[0]);
 						txtVacation.setText(dataLeave[1]);
 						txtEmergency.setText(dataLeave[2]);
-						
-						//Setting the label icon as employee's photo
+
 						lblProfilePic.setIcon(new ImageIcon(
 								"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Icons\\female.png"));
 
@@ -576,9 +733,7 @@ public class Information {
 					}
 
 				} else if (comboBox.getSelectedItem().equals("....")) {
-					
 					// Sets the textfields to empty
-					// Employee Information
 					txtName.setText("....");
 					txtDepartment.setText("....");
 					txtEmail.setText("....");
@@ -589,8 +744,7 @@ public class Information {
 					txtPhilhealth.setText(".....");
 					txtTIN.setText(".....");
 					txtPagibig.setText(".....");
-					
-					// Payroll Information
+
 					txtBasicSalary.setText(".....");
 					txtClothing.setText(".....");
 					txtPhone.setText(".....");
@@ -600,13 +754,11 @@ public class Information {
 					txtTax.setText(".....");
 					txtNet.setText(".....");
 					txtGross.setText(".....");
-					
-					// Leaves Information
+
 					txtSick.setText("....");
 					txtVacation.setText("....");
 					txtEmergency.setText("....");
-					
-					// Set the image icon to "blank user"
+
 					lblProfilePic.setIcon(
 							new ImageIcon("C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Icons\\blank.png"));
 				}
@@ -614,7 +766,7 @@ public class Information {
 		});
 
 		comboBox.setToolTipText("");
-		comboBox.setBounds(88, 22, 67, 22);
+		comboBox.setBounds(95, 26, 67, 22);
 		comboBox.addItem("....");
 		comboBox.addItem("1111");
 		comboBox.addItem("2222");
@@ -622,10 +774,12 @@ public class Information {
 
 		// Payroll Print
 		JButton btnPrint = new JButton("Print");
+		btnPrint.setForeground(new Color(69, 69, 69));
+		btnPrint.setBackground(new Color(255, 165, 89));
+		btnPrint.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 		btnPrint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				//If combobox selected item is not "...." the method will proceed
+
 				if (!comboBox.getSelectedItem().equals("....")) {
 					try {
 						BufferedWriter writer = new BufferedWriter(new FileWriter(
@@ -651,16 +805,17 @@ public class Information {
 						e1.printStackTrace();
 					}
 				} else
-					// If combobox selected item is "...." it will prompt the user
-					// that is has invalid employee number
 					JOptionPane.showMessageDialog(null, "Invalid Employee Number.");
 			}
 		});
-		btnPrint.setBounds(185, 180, 102, 35);
+		btnPrint.setBounds(200, 180, 75, 30);
 		panel_1.add(btnPrint);
 
 		// Update and Delete Data Method
 		JButton btnUpdate = new JButton("Update");
+		btnUpdate.setBackground(new Color(255, 165, 89));
+		btnUpdate.setForeground(new Color(69, 69, 69));
+		btnUpdate.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -670,9 +825,7 @@ public class Information {
 				String emailUp = txtEmailUp.getText();
 				String addressUp = txtAddressUp.getText();
 				String contactUp = txtContactUp.getText();
-				
-				// If combobox selected item is "...." it will prompt the user
-				// that is has invalid employee number
+
 				if (comboBox.getSelectedItem().equals("....")) {
 					JOptionPane.showMessageDialog(null, "Invalid Employee Number.");
 
@@ -764,15 +917,17 @@ public class Information {
 				txtContactUp.setText("");
 			}
 		});
-		btnUpdate.setBounds(182, 180, 102, 35);
+		btnUpdate.setBounds(200, 180, 75, 30);
 		panel_4.add(btnUpdate);
 
 		// Request Leave Method & Event Handlers
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setBackground(new Color(255, 165, 89));
+		btnSubmit.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
+		btnSubmit.setForeground(new Color(69, 69, 69));
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				// If leave combobox selected item is "...." it will prompt the user
+
 				if (cmbLeave.getSelectedItem().equals("....")) {
 					JOptionPane.showMessageDialog(null, "Please choose you leave type.");
 				} else if (comboBox.getSelectedItem().equals("....")) {
@@ -782,38 +937,22 @@ public class Information {
 				} else if (comboBox.getSelectedItem().equals("1111")) {
 					if (cmbLeave.getSelectedItem().equals("Sick Leave")) {
 						try {
-							// Reads leaves csv file
 							BufferedReader reader = new BufferedReader(new FileReader(
 									"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Files\\leaves1111.csv"));
 							String line = reader.readLine();
-							
-							// This is use to build/concatinate values into one string
 							StringBuilder leaveUpdate = new StringBuilder();
 
 							while (line != null) {
-								
-								// Splits the string that are separated by comma ","
 								String[] data = line.split(",");
-								
-								// Converts the value from the csv file to integer for computation purposes
 								int leaveCount = Integer.parseInt(data[0]);
-								
-								// Method will run until the leaveCount is not zero
 								if (leaveCount > 0) {
 									leaveCount = leaveCount - 1;
-									
-									// Converts the leaveCount back string to input it on csv file
 									data[0] = Integer.toString(leaveCount);
-									
-									// "Date" is a method integrated in java to deal with "Calendar"
+
 									Date selectedDate = calendar.getDate();
-									
-									// Formats the calendar date
 									SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-									
 									String formattedDate = dateFormat.format(selectedDate);
 									try {
-										// Writes the data to csv file with employee no., date, and type of leave
 										BufferedWriter writer = new BufferedWriter(new FileWriter(
 												"C:\\Users\\clari\\eclipse-workspace\\EmployeeApp2\\src\\Files\\leaveApplication.csv",
 												true));
@@ -830,11 +969,7 @@ public class Information {
 								} else {
 									JOptionPane.showMessageDialog(null, "Not enough sick leave.");
 								}
-								
-								// This joins the element of data array to and separates it with comma ","
 								leaveUpdate.append(String.join(",", data)).append("\n");
-								
-								// Reads the next line
 								line = reader.readLine();
 							}
 
@@ -1106,19 +1241,21 @@ public class Information {
 			}
 		});
 
-		btnSubmit.setBounds(278, 191, 187, 32);
+		btnSubmit.setBounds(325, 185, 75, 30);
 		panel_2.add(btnSubmit);
 
 		JLabel lblAvailable = new JLabel("Available Leaves");
-		lblAvailable.setBounds(278, 11, 98, 14);
+		lblAvailable.setFont(new Font("Liberation Sans", Font.PLAIN, 12));
+		lblAvailable.setForeground(new Color(0, 0, 0));
+		lblAvailable.setBounds(267, 11, 98, 14);
 		panel_2.add(lblAvailable);
 
 		JSeparator separator = new JSeparator();
-		separator.setBounds(278, 145, 187, 2);
+		separator.setBounds(267, 145, 187, 2);
 		panel_2.add(separator);
 
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(278, 36, 187, 2);
+		separator_1.setBounds(267, 36, 187, 2);
 		panel_2.add(separator_1);
 	}
 }
