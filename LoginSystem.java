@@ -88,7 +88,7 @@ public class LoginSystem {
 
 		txtUsername = new JTextField();
 		txtUsername.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 12));
-		txtUsername.setBounds(342, 84, 112, 20);
+		txtUsername.setBounds(342, 93, 112, 20);
 		frmDfsf.getContentPane().add(txtUsername);
 		txtUsername.setColumns(10);
 
@@ -123,7 +123,7 @@ public class LoginSystem {
 			}
 		});
 
-		btnNewButton.setBounds(366, 185, 88, 27);
+		btnNewButton.setBounds(366, 190, 88, 27);
 		frmDfsf.getContentPane().add(btnNewButton);
 
 		JButton btnNewButton_2 = new JButton("Register");
@@ -152,13 +152,13 @@ public class LoginSystem {
 			}
 		});
 
-		btnNewButton_2.setBounds(277, 185, 87, 27);
+		btnNewButton_2.setBounds(277, 190, 87, 27);
 		frmDfsf.getContentPane().add(btnNewButton_2);
 
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 12));
 		passwordField.setToolTipText("");
-		passwordField.setBounds(342, 115, 112, 20);
+		passwordField.setBounds(342, 124, 112, 20);
 		frmDfsf.getContentPane().add(passwordField);
 
 		// Hide and unhide password toggle w/ checkbox
@@ -175,7 +175,7 @@ public class LoginSystem {
 				}
 			}
 		});
-		showPass.setBounds(404, 135, 63, 23);
+		showPass.setBounds(404, 144, 63, 23);
 		frmDfsf.getContentPane().add(showPass);
 
 		JPanel panel = new JPanel();
@@ -185,20 +185,20 @@ public class LoginSystem {
 
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBackground(new Color(255, 255, 255));
-		lblNewLabel.setIcon(new ImageIcon(LoginSystem.class.getResource("/Files/MotorPH (1) (1).png")));
+		lblNewLabel.setIcon(new ImageIcon(LoginSystem.class.getResource("/Files/MotorPH Logo (1).png")));
 		lblNewLabel.setBounds(0, 0, 239, 261);
 		panel.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Username");
 		lblNewLabel_1.setForeground(new Color(69, 69, 69));
 		lblNewLabel_1.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
-		lblNewLabel_1.setBounds(277, 88, 63, 14);
+		lblNewLabel_1.setBounds(277, 97, 63, 14);
 		frmDfsf.getContentPane().add(lblNewLabel_1);
 
 		JLabel lblNewLabel_1_1 = new JLabel("Password");
 		lblNewLabel_1_1.setForeground(new Color(69, 69, 69));
 		lblNewLabel_1_1.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 13));
-		lblNewLabel_1_1.setBounds(277, 118, 63, 14);
+		lblNewLabel_1_1.setBounds(277, 127, 63, 14);
 		frmDfsf.getContentPane().add(lblNewLabel_1_1);
 	}
 }
